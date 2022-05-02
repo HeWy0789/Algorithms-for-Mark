@@ -2,13 +2,18 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
 ext {
+    javaVersion = JavaVersion.VERSION_11;
     junitVersion = "5.7.0"
     mockitoVersion = "3.5.11"
 }
+
+sourceCompatibility = javaVersion;
+targetCompatibility = javaVersion;
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
 
 repositories {
     mavenCentral()

@@ -14,6 +14,6 @@ public class MaxValueTest {
     public void checkMaxValueMethod() {
         int max = maxValue.computeMaxValue(array);
 
-        Assertions.assertEquals(20, max);
+        Assertions.assertEquals(0, max);
     }
 }
