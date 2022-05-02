@@ -45,7 +45,11 @@ public class Calculator {
             } catch (NumberFormatException nmfe) {
                 arabInt = matematika.returnRimskoeValue(arab);
                 arab2Int = matematika.returnRimskoeValue(arab2);
-                result = matematika.returnResult(op, arabInt,arab2Int);
+                result = matematika.returnOperation(arabInt, arab2Int, op);
+
+                if (result < 1) {
+                    throw new RuntimeException("в римской системе нет отрицательных чисел");
+                }
 
                 matematika.writeInConsoleRimValue(result);
 

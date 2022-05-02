@@ -30,6 +30,20 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.22.0'
 }
 
+jar {
+    doFirst {
+        manifest {
+            attributes(
+                    'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                    'Main-Class': 'org.example.Calculator'
+            )
+        }
+    }
+
+    archiveBaseName = 'calculator-Mark'
+    archiveVersion = '0.1.0'
+}
+
 test {
     useJUnitPlatform()
 }

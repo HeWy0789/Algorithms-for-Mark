@@ -8,18 +8,8 @@ public class Matematika {
     public void writeInConsoleArabicValue(int first, int second, String operation) {
         // Выводит значение в консоль
         if (first >= 1 && first <= 10 && second >= 1 && second <= 10) {
-            switch (operation) {
-                case ("+"):
-                    System.out.println(first + second);
-                case ("-"):
-                    System.out.println(first - second);
-                case ("*"):
-                    System.out.println(first * second);
-                case ("/"):
-                    System.out.println(first / second);
-                default:
-                    throw new RuntimeException("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
-            }
+            int result = 0;
+            System.out.println(returnOperation(first, second, operation));
         }
     }
 
@@ -38,27 +28,23 @@ public class Matematika {
         return arabInt;
     }
 
-    public int returnResult(String op, int arabInt, int arab2Int) {
-        int result;
+    public int returnOperation( int arabInt, int arab2Int, String op) {
+        int result = 0;
         switch (op) {
-            case ("+"):
-                return arabInt + arab2Int;
-            case ("-"):
+            case ("+"): {
+                result = arabInt + arab2Int;
+            }
+            case ("-"): {
                 result = arabInt - arab2Int;
-                if (result < 1) {
-                    throw new RuntimeException("в римской системе нет отрицательных чисел");
-                }
-                return result;
-            case ("*"):
-                return arabInt * arab2Int;
-            case ("/"):
+            }
+            case ("*"): {
+                result = arabInt * arab2Int;
+            }
+            case ("/"): {
                 result = arabInt / arab2Int;
-                if (result < 1) {
-                    throw new RuntimeException("в римской системе нет отрицательных чисел");
-                }
-                return result;
-            default: return 0;
+            }
         }
+        return  result;
     }
 
     public void writeInConsoleRimValue(int result) {
